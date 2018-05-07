@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>	
+	<meta charset="utf-8"/>
+	<link rel=stylesheet href="../jqm/css/jquery.mobile-1.3.2.css">
+	<script src="../jqm/js/jquery-1.8.3.js"></script>
+	<script src="../jqm/js/jquery.mobile-1.3.2.js"></script>
+	<style type="text/css">
+		*{ font-size: 25px; }
+	</style>
+</head>
+<body>
+	<div data-role="page">
+	  
+	  <div data-role="content">
+	  
+	  <!-- 开头 -->
+		<div data-role="header" data-position="fixed">
+		    <h1 style=" font-size: 40px;">挂号</h1>
+		  	<div data-role="navbar">
+		  		<ul >
+		  			<li id="a"><a href="MyMenage.html"><span style="font-size: 25px;">我的信息</span></a></li>
+		  			<li><a href="guahao.html" class="ui-btn-active"><span style="font-size:25px;">挂号就诊</span></a></li>
+		  			<li><a href="chufang.jsp"><span style="font-size:25px;">处方信息</span></a></li>
+		  			<li><a href="record.jsp"><span style="font-size:25px;">历史病例</span></a></li>
+				</ul>
+		  	</div>
+		</div>
+		
+		<script>
+			$(function(){
+				$("#a").click(function(){
+					window.location.href="MyMenage.html";
+					});
+				})
+			</script>
+	  	<div data-role="collapsible-set" data-collapsed="false">
+		<div data-role="fieldcontain">
+		　<fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+		　　 <legend style="position: relative; top: 10px;">挂号类型：</legend>
+		
+		　　 <input type="radio" name="ck_name" value="401" id="checkbox-1" class="custom" />
+		　　 <label for="checkbox-1">专家号</label>
+		
+			<input type="radio" name="ck_name" value="402" checked = true id="checkbox-2" class="custom" />
+			　　 <label for="checkbox-2">普通号</label>
+			
+		　　 </fieldset>
+		</div>
+			<div data-role="collapsible">
+				<h1 id='keshi'>点击选择科室</h1>
+				<p id="getDep">
+					
+				</p>		
+			</div>
+			
+			
+			<div data-role="collapsible">
+				<h1 class="Names">科室：</h1>
+				<p>
+					<h1 style="font-size: 20px;">这里的都是在线医生，不在线的医生在这里找不到哦</h1>
+					<ul id="keshirongqi" data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="true" class="depp">
+						<li>
+							 <a href="#myPopup" onclick="input('bb')" data-rel="popup" value="1" class="ui-btn" data-transition="flip">医生信息</a>
+						</li>
+					</ul>
+				</p>
+			</div>
+		</div>
+	  </div>
+	  
+	  <!-- 弹出部分 -->
+	  <div data-role="popup" id="myPopup" data-overlay-theme="b">
+	      <div data-role="header">
+	        <h1 style="height:30px; text-align: center; line-height: 30px;
+	        			font-size: 30px;
+	        			">
+		        	提示
+	        </h1>
+	      </div>
+	      <div data-role="main" class="ui-content" style="text-align: center;">
+	        <h2 style="text-align: center;">您确定在该医生名下挂号吗？</h2>
+	         <form action="../../servlet/registered?opr=add" id='regiadd' method="post"> 
+	       <a data-role='button' data-inline='true' data-icon='home' data-rel="back"><span>返回</span></a>
+	       <input type="text" name='userId' id='aa' value='' style="display:none"/ >
+	       <a data-role='button' data-inline='true' data-icon='home' onclick="subm()"><span>确定</span></a>
+	     </form>
+	      </div>
+​
+	      <div data-role="footer">
+	        <h1>挂号该医生</h1>
+	      </div>
+    	</div> 
+	  <div data-role="footer" data-position="fixed">
+	    <h1>版权所有&copy; 翻录必究</h1>
+	  </div>
+  	</div>
+  	<script src="../JS/guahao.js"></script>
+  	<script>
+	  	var left = ( $(window).screen.width() - $("#myPopup").width())  / 2;
+		var top = ( $(document).screen.height()- $("#myPopup").height())/2;
+		$("#myPopup").css({"position":"relative", "top": top, "left": left});
+  	</script>
+</body>
+</html>

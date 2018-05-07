@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>	
+	<meta charset="utf-8"/>
+	<link rel=stylesheet href="../jqm/css/jquery.mobile-1.3.2.css">
+	<script src="../jqm/js/jquery.js"></script>
+	<script src="../jqm/js/jquery.mobile-1.3.2.js" type="text/javascript"></script>
+	<style type="text/css">
+		table{ margin-bottom: 20px;}
+		tr td{height: 60px; line-height: 60px;}
+		#updateBtn{font-size: 30px; margin-top: 20px;}
+	</style>
+</head>
+<body>
+	<div class="page" data-role="page" data-theme="e">
+		 <div data-role="header" data-position="fixed">
+		    <h1 style=" font-size: 40px;">处方</h1>
+		  	<div data-role="navbar">
+		  		<ul>
+		  			<li><a href="MyMenage.html" class="ui-btn-active"><span style="font-size: 25px;">我的信息</span></a></li>
+		  			<li><a href="guahao.html"><span style="font-size:25px;">挂号就诊</span></a></li>
+		  			<li><a href="chufang.jsp"><span style="font-size:25px;">处方信息</span></a></li>
+		  			<li><a href="record.jsp"><span style="font-size:25px;">历史病例</span></a></li>
+				</ul>
+		  	</div>
+		</div>
+		 
+		 <div data-role="content">
+
+			<div id="query" style="width:550px; margin: 0px auto; text-align: center;">
+				<h1>我的信息</h1>
+				<div style="height: 20px"></div>
+				<table style="margin: 0px auto; font-size: 25px;">
+					<tbody>
+						<tr>
+							<td>姓名：</td>
+							<td id="regId">123</td>
+						</tr>
+						<tr>
+							<td>性别：</td>
+							<td id="nmb">男</td>
+						</tr>
+						<tr>
+							<td>身份证号：</td>
+							<td>410325199601135689</td>
+						</tr>
+						<tr>
+							<td>出生日期：</td>
+							<td>1996-01-13</td>
+						</tr>
+						<tr>
+							<td>手机号码：</td>
+							<td>13838838438</td>
+						</tr>
+						<tr>
+							<td>家庭住址：</td>
+							<td>河南省洛阳市涧西区景华路25号</td>
+						</tr>
+						<tr>
+							<td>注册日期：</td>
+							<td>2017-02-23</td>
+						</tr>
+						<tr>
+							<td>上次修改时间：</td>
+							<td>2017-05-23</td>
+						</tr>
+					</tbody>
+				</table>
+			<button id="updateBtn">修改我的信息</button>
+		</div>
+		<a href="#myPopup" style="display: block;" data-rel="popup" id="nologin" class="ui-btn" data-transition="flip"></a>
+		<div id="update" style="width:550px; margin: 0px auto; text-align: center; display: none;" >
+				<h1>我的信息</h1>
+				<div style="height: 20px"></div>
+				<table style="margin: 0px auto; font-size: 25px;">
+					<tbody>
+						<tr>
+							<td>姓名：</td>
+							<td id="regId"><input type="text" value="123"></td>
+						</tr>
+						<tr>
+							<td>性别：</td>
+							<td>
+								<fieldset data-role="controlgroup" data-type="horizontal">
+								　　 <input type="radio" name="sex1" id="checkbox-1" checked="checked" class="custom" />
+								　　 <label for="checkbox-1">男</label>
+									<input type="radio" name="sex1" id="checkbox-2" class="custom" />
+								　　 <label for="checkbox-2">女</label>
+								</fieldset>
+							</td>
+						</tr>
+						<tr>
+							<td>身份证号：</td>
+							<td><input type="text" value='410325199601135689'></td>
+						</tr>
+						<tr>
+							<td>出生日期：</td>
+							<td><input type="date" name="date" value="1996-01-13"/> </td>
+						</tr>
+						<tr>
+							<td>手机号码：</td>
+							<td><input type="text" value='13838838438'></td>
+						</tr>
+						<tr>
+							<td>家庭住址：</td>
+							<td><textarea rows="2" cols="20">河南省洛阳市涧西区景华路25号</textarea></td>
+						</tr>
+					</tbody>
+				</table>
+			<button id="updateSeccess">点击修改</button>
+		</div>
+		</div>
+		
+		
+		
+		<!-- 信息不完整弹出部分 -->
+	
+	  <div data-role="popup" id="myPopup" data-overlay-theme="b" style="width: 367px;">
+	      <div data-role="header">
+	        <h1 style="height:30px; text-align: center; line-height: 30px;
+	        			font-size: 30px;">修改提醒</h1></div>
+​
+	      <div data-role="main" class="ui-content" style="text-align: center;">
+	      
+	        <h2 style="text-align: center; font-size: 20px;">修改成功</h2>
+	         
+	       	<a href='#' class="login" data-rel="back" data-role='button' data-inline='true' data-icon='home'><span>点击查看</span></a>
+	      
+	      </div>
+​			<script>
+			</script>
+	      <div data-role="footer">
+	        <h1>登录提示</h1>
+	      </div>
+    	</div>
+		
+	</div>
+	
+	
+	
+<script type="text/javascript">
+
+	$(function(){
+		
+		$("#updateBtn").click(function(){
+			$("#query").css({"display":"none"});
+			$("#update").css({"display":"block"});
+		});
+		$("#updateSeccess").click(function(){
+			$("#nologin").click();
+		});
+		$(".login").click(function(){
+			$("#nmb").text('女');
+			$("#query").css({"display":"block"});
+			$("#update").css({"display":"none"});
+		});
+		
+	});
+	
+</script>	
+	
+</body>
+</html>

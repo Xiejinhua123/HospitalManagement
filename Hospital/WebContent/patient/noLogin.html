@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>	
+	<meta charset="utf-8"/>
+	<link rel=stylesheet href="jqm/css/jquery.mobile-1.3.2.css">
+	<script src="jqm/js/jquery.js"></script>
+	<script src="jqm/js/jquery.mobile-1.3.2.js"></script>
+	<style type="text/css">
+		body{font-size: 30px;}
+		.ui-body-f
+		{
+			font-weight:bold;
+			color:purple;
+		}
+		li{ height: 50px;}
+
+	</style>
+
+</head>
+<body>
+<div>
+<a href="#myPopup" style="display: none;" data-rel="popup" id="nologin" class="ui-btn" data-transition="flip">翻转</a>
+
+	 <!-- 弹出部分 -->
+	  <div data-role="popup" id="myPopup" style="position: relative; left: 18%;" data-overlay-theme="b">
+	      <div data-role="header">
+	        <h1 style="height:30px; text-align: center; line-height: 30px;
+	        			font-size: 30px;
+	        			">
+		        	提示
+	        </h1>
+	      </div>
+​
+	      <div data-role="main" class="ui-content" style="text-align: center;">
+	        <h2 style="text-align: center;">您还没有登录，点击按钮登录</h2>
+	       <a href='#' class="login" data-role='button' data-inline='true' data-icon='home'><span>点击登录</span></a>
+	     
+	       <a href='#' class="zhuce" data-role='button' data-inline='true' data-icon='home'><span>没有账号，我要注册</span></a>
+	      </div>
+​
+	      <div data-role="footer">
+	        <h1>登录提示</h1>
+	      </div>
+    	</div> 
+	
+  	</div>
+  	<script type="text/javascript">
+  		$(function(){
+  			$("#myPopup").css({margin:"50% auto"});
+  			$("#nologin").click();
+  			
+  			$(".login").click(function(){
+  				window.location.href="login.html";
+  			});
+  			
+  			$(".zhuce").click(function(){
+  				window.location.href="zhuce.html";
+  			});
+  		});
+  		
+  	</script>
+  
+</body>
+</html>
