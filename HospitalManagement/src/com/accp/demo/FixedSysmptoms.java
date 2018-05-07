@@ -1,0 +1,37 @@
+package com.accp.demo;
+
+/**
+ * ¹Ì¶¨Ö¢×´Àà
+ * @author ½â½ð»¯
+ *	@version 1.0
+ *	
+ *2017.03.08
+ *
+ */
+public class FixedSysmptoms {
+
+	private int fSId;//¹Ì¶¨Ö¢×´±àºÅ
+	private String sysmptoms;//¹Ì¶¨Ö¢×´
+	public int getfSId() {
+		return fSId;
+	}
+	public void setfSId(int fSId) {
+		this.fSId = fSId;
+	}
+	public String getSysmptoms() {
+		return sysmptoms;
+	}
+	public void setSysmptoms(String sysmptoms) {
+		this.sysmptoms = sysmptoms;
+	}
+	public FixedSysmptoms(int fSId, String sysmptoms) {
+		super();
+		this.fSId = fSId;
+		this.sysmptoms = sysmptoms;
+	}
+	public FixedSysmptoms() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+}
