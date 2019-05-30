@@ -1,0 +1,35 @@
+ball.jsp	龙珠管理中心
+
+convert_ball.jsp	龙珠兑换中心
+
+foot.jsp	底部信息
+
+games.jsp	游戏中心
+
+goods.jsp	查看商品
+
+label.jsp	查看标签
+
+login.htm	登录
+
+logistics.jsp	物流中心
+
+love.jsp	爱心管理
+
+menu.jsp	菜单
+
+optionsPrize.jsp	投票档位奖品设置
+
+ranking.jsp	投票排行榜
+
+redeem.jsp	兑奖中心
+
+setVoteOption.jsp	投票兑奖档位设置
+
+top.jsp		头部信息
+
+updateGoods.jsp		更该商品
+
+updateLabel.jsp		更改标签
+
+users.jsp		查看用户

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<package name="default" namespace="/" extends="struts-default">
+		<!-- 自定义拦截器 -->
+		<interceptors>
+			<interceptor name="myInterceptors" class="cn.vote.action.LoginInterceptor"/>
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="myInterceptors"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 默认404 -->
+		<default-action-ref name="notFound" />
+		<!-- 全局result -->
+		<global-results>
+			<result name="noLogin" type="redirect">/pagefile/pages/login.htm</result>
+		</global-results>
+		<!-- 全局action -->
+		<action name="notFound">
+			<interceptor-ref name="myStack"/>
+			<result>/pagefile/pages/noPage.html</result>
+		</action>
+		<!-- 注销 -->
+		<action name="adminlogout" class="adminAction" method="adminlogout">
+			<result>/pagefile/pages/login.htm</result>
+		</action>
+		<!-- 获取登录管理员信息 -->
+		<action name="getAdminMsg" class="adminAction" method="getAdminMsg"/>
+		<!-- 修改登录管理员信息 -->
+		<action name="updateAdminMes" class="adminAction" method="updateAdminMes"/>
+		<!-- 修改登录管理员密码 -->
+		<action name="updatePassword" class="adminAction" method="updatePassword"></action>
+		<!-- 验证用户名信息是否正确 -->
+		<action name="checkedName" class="adminAction" method="checkedName"/>
+			
+		<!-- 查询单个文章 -->
+		<action name="content" class="articleAction" method="content">
+			<result>/pagefile/pages/updateArticle.jsp</result>
+		</action>
+		<!-- 文章部分添加 -->
+		<action name="addArticle" class="articleAction" method="addArticle"/>
+		<!-- 文章部分xiugai -->
+		<action name="updateArticle" class="articleAction" method="updateArticle"/>
+		<!-- 文章部分 删除-->
+		<action name="delArticle" class="articleAction" method="delArticle"/>
+		<!-- 文章部分获取全部 -->
+		<action name="getArticleAll" class="articleAction" method="getArticleAll"/>
+		<!-- 按时间排序查询文章-->
+		<action name="searchArticleByNewTime" class="articleAction" method="searchArticleByNewTime"/>
+	    <!-- 按阅读量排序查询文章-->
+		<action name="searchArticleByReadNumber" class="articleAction" method="searchArticleByReadNumber"/>
+		<!-- 根据文章标题模糊查询-->
+		<action name="searchArticleByTitle" class="articleAction" method="searchArticleByTitle"/>
+		<!-- 给文章赠送爱心-->
+		<action name="sendLove" class="articleAction" method="sendLove"/>
+		
+		<!-- 管理员执行登录 -->
+		<action name="doLogin" class="adminAction" method="dologin"/>
+		<!-- 获取管理员 -->
+		<action name="getAllAdmin" class="adminAction" method="getAllAdmin"><interceptor-ref name="myStack"/></action>
+		<!-- 根据编号获取管理员 -->
+		<action name="getAdminById" class="adminAction" method="getAdminById"><interceptor-ref name="myStack"/></action>
+		<!-- 修改管理员 -->
+		<action name="updAdmin" class="adminAction" method="updAdmin">
+			<interceptor-ref name="myStack"/>
+			<result name="success">/pagefile/pages/admin.jsp</result>
+		</action>
+		<!-- 删除管理员 -->
+		<action name="delAdmin" class="adminAction" method="delAdmin">
+			<interceptor-ref name="myStack"/>
+			<result name="success">/pagefile/pages/admin.jsp</result>
+		</action>
+		<!-- 添加管理员 -->
+		<action name="addAdmin" class="adminAction" method="addAdmin">
+			<interceptor-ref name="myStack"/>
+			<result name="success">/pagefile/pages/admin.jsp</result>
+		</action>
+		
+		<!-- 通过编号获取权限 -->
+		<action name="getResById" class="resourceAction" method="getById">
+			<interceptor-ref name="myStack"/>
+		</action>
+		<!-- 获取所有的权限 -->
+		<action name="getAllRes" class="resourceAction" method="getAllRes">
+			<interceptor-ref name="myStack"/>
+		</action>
+		<!-- 删除权限信息 -->
+		<action name="delRes" class="resourceAction" method="delRes">
+			<interceptor-ref name="myStack"/>
+			<result name="success">/pagefile/pages/resours.jsp</result>
+		</action>
+		<!-- 修改权限 -->
+		<action name="updRes" class="resourceAction" method="updRes">
+			<interceptor-ref name="myStack"/>
+			<result name="success">/pagefile/pages/resours.jsp</result>
+		</action>
+		<!-- 添加权限 -->
+		<action name="addRes" class="resourceAction" method="addRes">
+			<interceptor-ref name="myStack"/>
+			<result name="success">/pagefile/pages/resours.jsp</result>
+		</action>
+		
+		<!-- ajax获取权限信息，用于显示当前用户需要使用的权限信息 -->
+		<action name="getAjaxRes" class="resourceAction" method="getAjaxRes">
+			<interceptor-ref name="myStack"/>
+		</action>
+		
+		<!-- ajax获取权限信息，用于显示当前用户需要使用的权限信息 -->
+		<action name="getLevel1" class="resourceAction" method="getLevel1">
+			<interceptor-ref name="myStack"/>
+		</action>
+		<!-- 获取一级权限下二级元素 -->
+		<action name="getResByParent" class="resourceAction" method="getResByParent">
+			<interceptor-ref name="myStack"/>
+		</action>
+		<!-- 编辑用户权限时（获取二级权限） -->
+		<action name="getResByParent2" class="resourceAction" method="getResByParent2">
+			<interceptor-ref name="myStack"/>
+		</action>
+		<!-- 编辑用户权限 -->
+		<action name="addresous" class="adminResourceAction" method="addresous"/>
+		<!-- 用户登录 -->
+		<action name="userdoLogin" class="userAction" method="doUserLogin"/>
+		<!-- 获取所有用户 -->
+		<action name="getAllUser" class="userAction" method="getAllUser"/>
+		<!-- 获取名称模糊查询用户 -->
+		<action name="getUserByUserName" class="userAction" method="getUserByUserName"/>
+		<!-- 获取登录用户信息 -->
+		<action name="getMyMesage" class="userAction" method="getMyMesage"/>
+		<!-- 获取其他用户信息 -->
+		<action name="getHimMesage" class="userAction" method="getHimMesage"/>
+		<!-- 获取用户排行榜 -->
+		<action name="votesRanking" class="userAction" method="votesRanking"/>
+		<!-- 用户投票 -->
+		<action name="voteing" class="userAction" method="voteing"/>
+		<!-- 修改用户个人信息 -->
+		<action name="updateUser" class="userAction" method="updateUser"/>
+		<!-- 获取票数前十名-->
+		<action name="getvoteTen" class="userAction" method="getvoteTen"/>
+		<!-- 获取票数前十名-->
+		<action name="getThreeUser" class="userAction" method="getThreeUser"/>
+		<!-- 获取达人用户前十名-->
+		<action name="getExpert" class="userAction" method="getExpert"/>
+		<!-- 添加用户地址 -->
+		<action name="addAddress" class="userAddressAction" method="addAddress"/>
+		<!-- 删除用户地址 -->
+		<action name="delAddress" class="userAddressAction" method="delAddress"/>
+		<!-- 修改用户地址 -->
+		<action name="updateAddress" class="userAddressAction" method="updateAddress"/>
+		<!-- 查询用户单个地址 -->
+		<action name="getAddressById" class="userAddressAction" method="getAddressById"/>
+		<!-- 查询用户全部地址 -->
+		<action name="getAllAddress" class="userAddressAction" method="getAllAddress"/>
+		<!-- 用户图片增加 -->
+		<action name="addUserImg" class="userImgAction" method="addUserImg"/>
+		<!-- 用户图片删除 -->
+		<action name="delUserImg" class="userImgAction" method="delUserImg"/>
+		<!-- 用户图片获取全部 -->
+		<action name="getAllUserImg" class="userImgAction" method="getAllUserImg"/>
+		
+		<!-- 获取所有商品 -->
+		<action name="getAllGoods" class="goodsAction" method="getAllGoods"/>
+		<!-- 查询单个商品 -->
+		<action name="findGoodsById" class="goodsAction" method="getById"></action>
+		<!-- 删除商品 -->
+		<action name="deleteGoodById" class="goodsAction" method="deleteGoodById"/>
+		<!-- 修改商品信息 -->
+		<action name="updateGoods" class="goodsAction" method="updateGoods"></action>
+		<!-- 获取所有商品名称 -->
+		<action name="getAllGoodsName" class="goodsAction" method="getAllGoodsName"></action>
+		
+		<!-- 查看所有标签 -->
+		<action name="getAllLabel" class="lableAction" method="getAllLabel"/>
+		<!-- 分页所有标签 -->
+		<action name="getLable" class="lableAction" method="getLable"/>
+		<!-- 修改标签 -->
+		<action name="updateLable" class="lableAction" method="updateLable">
+		</action>
+		<!-- 删除标签 -->
+		<action name="deleteLable" class="lableAction" method="deleteLable"/>
+		<!-- 根据id查询标签 -->
+		<action name="getLableById" class="lableAction" method="getLableById"/>
+		<!-- 添加标签 -->
+		<action name="addLable" class="lableAction" method="addLable"/>
+		<!-- 添加商品  解金化 -->
+		<action name="addGoods" class="goodsAction" method="addGoods">
+			<result name="success">/pagefile/pages/addGoods.jsp</result>
+			<result name="error">/pagefile/pages/addGoods.jsp</result>
+		</action>
+		
+		<!-- 获取全部龙珠信息 -->
+		<action name="getAllBall" class="ballAction" method="getAll"/> 
+		<!-- 修改龙珠信息 -->
+		<action name="updateBall" class="ballAction" method="updateBall"/> 
+		<!-- 根据id查询龙珠信息 -->
+		<action name="getById" class="ballAction" method="getById"/>
+		<!-- 根据id查询龙珠详细 -->
+		<action name="getBallxx" class="ballAction" method="getBallxx"/>
+		<!-- 获取商品兑换龙珠的详细信息  解金化-->
+		<action name="getGoodsBall" class="goodsBallAction" method="getGoodsBall"/>
+		<!-- 查看标签用户 -->
+		<action name="getUserByLavelId" class="userLabelAction" method="getUserByLavelId"/>
+		<!-- 删除用户标签 -->
+		<action name="delUL" class="userLabelAction" method="delUL"/>
+		<!-- 添加用户标签 -->
+		<action name="addUL" class="userLabelAction" method="addUL"/>
+		<!-- 获取用户标签 -->
+		<action name="getUL" class="userLabelAction" method="getUL"/>
+		<!-- 获取标签排行前十 -->
+		<action name="getUserByLabelIdTop10" class="userLabelAction" method="getUserByLabelIdTop10"/>
+		
+		<!-- 开宝箱 -->
+		<action name="openTheBox" class="gameAction" method="openTheBox"/>
+		<!-- 获取游戏奖励 -->
+		<action name="getAweardsByGameId" class="awardsAction" method="getAweardsByGameId"/>
+		<!-- 根据id获取游戏奖励 -->
+		<action name="getAwardsById" class="awardsAction" method="getAwardsById"/>
+		<!-- 删除游戏奖励 -->
+		<action name="deleteAward" class="awardsAction" method="deleteAwards"/>
+		<!-- 修改游戏奖励 -->
+		<action name="updateAwards" class="awardsAction" method="updateAwards"/>
+		<!-- 添加戏奖励 -->
+		<action name="addAwards" class="awardsAction" method="addAwards"/>
+		<!-- 查看爱心 -->
+		<action name="selLove" class="loveAction" method="getL"/>
+		<!-- 修改爱心 -->
+		<action name="updateLove" class="loveAction" method="updateL"/>
+		<!-- 自定义添加用户 -->
+		<action name="addUser" class="userAction" method="addUser">
+			<interceptor-ref name="myStack"/>
+			<result name="success">/pagefile/pages/users.jsp</result>
+			<result name="error">/pagefile/pages/users.jsp</result>
+		</action>
+		<!-- 验证用户名在数据库中是否存在 -->
+		<action name="checkedUserName" class="userAction" method="selectByName"/>
+	</package>
+</struts>

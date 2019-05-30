@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.vote.entity.Resource" table="resource" catalog="vote">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity"></generator>
+        </id>
+        <many-to-one name="resourceByParent" class="cn.vote.entity.Resource" fetch="select">
+        	<column name="RES_PARENT"/>
+        </many-to-one>
+        <property name="resGrade" type="java.lang.Integer">
+            <column name="RES_GRADE" />
+        </property>
+        <many-to-one name="adminByCreateId" class="cn.vote.entity.Admin" fetch="select">
+            <column name="CREATE_ID" />
+        </many-to-one>
+        <many-to-one name="adminByUpdateId" class="cn.vote.entity.Admin" fetch="select">
+            <column name="UPDATE_ID" />
+        </many-to-one>
+        <property name="resName" type="java.lang.String">
+            <column name="RES_NAME" />
+        </property>
+        <property name="resAddress" type="java.lang.String">
+            <column name="RES_ADDRESS" />
+        </property>
+        <property name="resStatic" type="java.lang.Integer">
+            <column name="RES_STATIC" />
+        </property>
+        <property name="resIco" type="java.lang.String">
+            <column name="RES_ICO" />
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="10" />
+        </property>
+        <property name="updateTime" type="java.util.Date">
+            <column name="UPDATE_TIME" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

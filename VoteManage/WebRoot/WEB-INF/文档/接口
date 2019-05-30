@@ -1,0 +1,65 @@
+方法							作用								参数				说明
+logout.action				注销后台登录用户					无
+
+checkedName.action			验证用户名信息是否正确				name			需要验证的用户的用户名
+
+doLogin.action				管理员执行登录						name			用户名
+															pwd				密码
+	
+userdoLogin.action			用户登录							name			用户名
+															pwd				密码
+
+getAllUser.action			获取所有用户						无 
+	
+votesRanking.action			获取用户票数排行榜					无
+
+vote.action					用户投票							无
+
+delUL.action				删除用户标签						labelId			标签编号
+
+addUL.action				添加用户标签						labelId			标签编号
+
+getUL.action				查看用户标签						无
+			
+getAllGoods.action			获取所有商品						pagesize		第几页
+															items			每页多少行
+
+findGoodsById.action		根据编号查询单个商品					goodsId				商品编号
+
+addGoods.action				添加商品							goods.goodsName		商品名称
+															goods.loveNumber	兑换商品需要的爱心量
+															file				图片（可以有多个）
+															goods.description	商品描述
+															
+deleteGoodById.action		根据编号删除商品					goodsId		商品编号
+
+updateGoods.action			修改商品信息						goods.id			商品编号
+															goods.goodsName		商品名称
+															goods.loveNumber	兑换商品所需爱心数量
+															goods.shelvesStatus	商品是否下架
+
+getLable.action				查看所有标签						pagesize		第几页
+															items			每页多少行
+
+updateLable.action			修改标签信息						lables.id			标签编号
+															lables.lableName	标签名称
+															lables.explains		标签说明
+
+deleteLable.action			根据编号删除标签					id		编号
+
+getLableById.action			根据编号查看标签信息					id		编号
+
+addLable.action				添加标签							lables.lableName	标签名称
+															lables.explains		标签描述
+
+getAllBall.action			获取所有龙珠信息 					无
+
+updateBall.action			修改龙珠信息						ball.id			龙珠编号
+															ball.ballName	龙珠名称
+															ball.probability	该龙珠对应的概率
+
+getById.action				根据编号查询龙珠信息					id			龙珠编号
+
+getBallxx.action			根据id查询龙珠详情					id			龙珠编号
+
+getGoodsBall.action			获取商品兑换龙珠的详细信息				无	

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<script type="text/javascript" src="js/jquery.js" ></script>
+		
+		<style>
+			.pad_right{ padding-right:2em;}
+			#scroll_div {height:26px;overflow: hidden;white-space: nowrap;width:100%;}
+			#scroll_begin,#scroll_end {display: inline;}
+			.homeimg{width: 100%;}
+			.anniu{width: 80%;z-index: 999;}
+			.danwei{width: 50%;}
+			.ding{width: 90%;}
+			.di{width: 90%;padding-top: -10px;}
+			
+			*{ 
+			    padding:0px;
+			    list-style: none; 
+			} 
+			.twoRankedBox{ 
+			    margin:15px 2px; 
+			    overflow: hidden; 
+			    padding-bottom:25px; 
+			} 
+			.twoRankedBox ul{ 
+			    width:49%; 
+			    float: left; 
+			} 
+			.twoRankedBox ul:last-child{ 
+			    margin-left:2%; 
+			} 
+			.twoRankedBox ul li{ 
+			    padding:5px; 
+			    margin-bottom:6px; 
+			    padding-bottom:8px; 
+			    background-color: #FFFFFF; 
+			} 
+			.twoRankedBox ul li p:first-child{ 
+			    padding-top:0px; 
+			} 
+			.twoRankedBox ul li p{ 
+			    padding-top:4px; 
+			} 
+			.product_picture img{ 
+			    display: block; 
+			    width:100%; 
+			} 
+			.product_np{ 
+			    overflow: hidden; 
+			    line-height:20px; 
+			} 
+			.product_np a{ 
+			    display: block; 
+			    overflow:hidden; 
+			    text-overflow:ellipsis; 
+			    white-space:nowrap; 
+			} 
+			.product_np a:first-child{ 
+			    font-size:0.9em; 
+			    color:#58b7e3; 
+			    width:65%; 
+			    float: left; 
+			} 
+			.product_np a:last-child{ 
+			    font-size:0.8em; 
+			    color:#f00; 
+			    float: right; 
+			    width:35%; 
+			    text-align: right; 
+			} 
+			.product_ie{ 
+			    font-size:0.8em; 
+			    color:#777; 
+			} 
+		</style>
+	</head>
+	<body>
+		<div id="scroll_div" class="fl"> 
+		  <div id="scroll_begin">
+			   恭喜11111***获得 <span class="pad_right">***奖励</span>
+			   恭喜22222***获得 <span class="pad_right">***奖励</span>
+			   恭喜33333***获得 <span class="pad_right">***奖励</span>
+			   恭喜44444***获得 <span class="pad_right">***奖励</span>
+			   恭喜55555***获得 <span class="pad_right">***奖励</span>
+			   恭喜66666***获得 <span class="pad_right">***奖励</span>
+			   恭喜77777***获得 <span class="pad_right">***奖励</span>
+		  </div> 
+		  <div id="scroll_end"></div>
+		</div>
+		<div style="width: 100%;background-color: #a12928;">
+			<img class="homeimg" src="img/wang_hong_cuang_ye6.jpg" />
+		</div>
+		<div style="text-align: center;background-color: #a12928;">
+			<img class="danwei" src="img/danwei.png" />
+		</div>
+		<div style="text-align: center;background-color: #a12928;">
+			<img class="anniu" src="img/anniu.png" />
+		</div>
+		<div style="text-align:center;background-color: #a12928;margin-top: -10px;">
+			<img class="ding" src="img/di.png" />
+			<div>
+				<div style="background-color: white;width: 90.5%;margin:-21px 0px -18px 17px;">
+					<div style="border-left:1px solid #fba022 ;border-right:1px solid #fba022 ;width: 93.5%;margin-left:10px ;">
+						<p>aaaaaaaaaa
+						aaaaaaaa<br />
+						aaaaaaaaaaaaa<br />
+						aaaaaaaaaaaaaaaaaaaaaaa
+						<br />
+						aaaaaaaaaaaaaaaaaaaaaaaa<br />
+						aaaaaaaaaaaaaaaaa
+						</p>
+					</div>
+				</div>
+			</div>
+			<img class="di" src="img/tou.png" />
+		</div>
+		<div style="text-align:center;background-color: #a12928;">
+			<img class="ding" src="img/di.png" />
+			<div>
+				<div style="background-color: white;width: 90.5%;margin:-21px 0px -18px 17px;">
+					<div style="border-left:1px solid #fba022 ;border-right:1px solid #fba022 ;width: 93.5%;margin-left:10px ;">
+						<p>aaaaaaaaaa
+						aaaaaaaa<br />
+						aaaaaaaaaaaaa<br />
+						aaaaaaaaaaaaaaaaaaaaaaa
+						<br />
+						aaaaaaaaaaaaaaaaaaaaaaaa<br />
+						aaaaaaaaaaaaaaaaa
+						</p>
+					</div>
+				</div>
+			</div>
+			<img class="di" src="img/tou.png" />
+		</div>
+		<div style="text-align:center;background-color: #a12928;">
+			<img class="ding" src="img/di.png" />
+			<div>
+				<div style="background-color: white;width: 90.5%;margin:-21px 0px -18px 17px;">
+					<div class="twoRankedBox" style="border-left:1px solid #fba022 ;border-right:1px solid #fba022 ;width: 93.5%;margin-left:10px ;">
+						<ul class="BoxLeft"> 
+ 
+				        </ul> 
+				        <ul class="BoxRight"> 
+				 
+				        </ul> 
+					</div>
+				</div>
+			</div>
+			<img class="di" src="img/tou.png" />
+		</div>
+		
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script type="text/javascript">
+		mui.init();
+		//文字横向滚动
+		function ScrollImgLeft(){ 
+		 var speed=50;
+		  var MyMar = null;
+		 var scroll_begin = document.getElementById("scroll_begin"); 
+		 var scroll_end = document.getElementById("scroll_end"); 
+		 var scroll_div = document.getElementById("scroll_div"); 
+		 scroll_end.innerHTML=scroll_begin.innerHTML; 
+		 function Marquee(){ 
+		  if(scroll_end.offsetWidth-scroll_div.scrollLeft<=0) 
+		   scroll_div.scrollLeft-=scroll_begin.offsetWidth; 
+		  else
+		   scroll_div.scrollLeft++; 
+		  } 
+		  MyMar=setInterval(Marquee,speed); 
+		  
+		}
+		ScrollImgLeft();
+		//获取用户信息
+		getAllUser();
+		//执行投票
+		function dovote(id){
+			$.ajax({
+			type:"post",
+			data:{"uuid":id,"users.totalVotes":voteNumber},
+			dataType:"json",
+			url:"/VoteManage/voteing.action",
+			success:function(m){
+				getAllUser();
+			}
+			});
+		}
+		function getAllUser()
+		{
+		$.ajax({
+			type:"post",
+			data:{"items":20,"pagesize":1},
+			dataType:"json",
+			url:"/VoteManage/getAllUser.action",
+			success:function(m){
+				var json={data:[]};
+				$.each(m.rows,function(i,n){
+					json.data[i]=n;
+				});
+			 pu(json);
+			}
+		});
+		
+		}
+		
+	//瀑布流
+	function pu(json)
+	{
+		for(var i=0;i<json.data.length;i++){ 
+			var h="";
+			if(json.data[i].labelList!=null){
+			$.each(json.data[i].labelList,function(i,n){
+			  h+=n.lableName+"\t";
+			});
+			}
+			
+		    var chtml = '<li><p class="product_picture"><img src="'+json.data[i].imgUrl+'"></p>' 
+		  		  +'<p class="product_np">'+h+'</p>' 
+		            +'<p class="product_np"><a>'+json.data[i].name+'</a><a>'+json.data[i].totalVotes+'</a></p>' 
+		            +'<p class="product_ie">id:'+json.data[i].id+',宝箱：'+json.data[i].boxNumber+',爱心：'+json.data[i].loveNumber+',龙珠总数：'+json.data[i].ballNumber+'<button onclick="dovote('+json.data[i].id+')">投票</button></p>';
+		 
+		    if($('.BoxLeft').height() < $('.BoxRight').height()){ 
+		        $('.BoxLeft').append(chtml); 
+		    }else{ 
+		        $('.BoxRight').append(chtml); 
+		    } ;
+		    }
+	}	
+	</script>
+</html>

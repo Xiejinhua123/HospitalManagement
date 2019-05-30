@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.vote.entity.AdminResource" table="admin_resource" catalog="vote">
+    	<cache usage="read-write"/>
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity"></generator>
+        </id>
+        <many-to-one name="resource" class="cn.vote.entity.Resource" fetch="select">
+            <column name="RESOURCE_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="adminByAdminId" class="cn.vote.entity.Admin" fetch="select">
+            <column name="ADMIN_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="adminByAllocationId" class="cn.vote.entity.Admin" fetch="select">
+            <column name="ALLOCATION_ID" not-null="true" />
+        </many-to-one>
+        <property name="allocationTime" type="java.util.Date">
+            <column name="ALLOCATION_TIME" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

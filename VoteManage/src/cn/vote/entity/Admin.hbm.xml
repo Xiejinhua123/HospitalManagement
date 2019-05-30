@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="cn.vote.entity.Admin" table="admin" catalog="vote">
+    	<cache usage="read-write"/>
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity"></generator>
+        </id>
+        <many-to-one name="adminByCreateId" class="cn.vote.entity.Admin" fetch="select">
+            <column name="CREATE_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="adminByUpdateId" class="cn.vote.entity.Admin" fetch="select">
+            <column name="UPDATE_ID" not-null="true"/>
+        </many-to-one>
+        <property name="deleted" type="java.lang.Integer">
+            <column name="DELETED" not-null="true" />
+        </property>
+        <property name="manageAccount" type="java.lang.String">
+            <column name="MANAGE_ACCOUNT" length="8" not-null="true" />
+        </property>
+        <property name="managePassword" type="java.lang.String">
+            <column name="MANAGE_PASSWORD" length="50" not-null="true" />
+        </property>
+        <property name="rank" type="java.lang.Integer">
+            <column name="RANK" not-null="true">
+                <comment>等级</comment>
+            </column>
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" length="12" not-null="true" />
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="19" not-null="true" />
+        </property>
+        <property name="updateTime" type="java.util.Date">
+            <column name="UPDATE_TIME" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:aop="http://www.springframework.org/schema/aop"
+     xmlns:tx="http://www.springframework.org/schema/tx"
+     xmlns:context="http://www.springframework.org/schema/context"
+     xsi:schemaLocation="
+     http://www.springframework.org/schema/beans 
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/tx
+     http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+     http://www.springframework.org/schema/aop 
+     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+     default-autowire="byName">
+
+<!-- beans部分配置 -->
+<!-- article文章部分 -->
+	<!-- action -->
+     <bean id="articleAction" class="cn.vote.action.ArticleAction" scope="prototype"/>
+    <!-- service -->
+    <bean id="articleService" class="cn.vote.service.impl.ArticleServiceImpl"/>
+    <!-- dao -->
+     <bean id="articleDao" class="cn.vote.dao.impl.ArticleDaoImpl"/>
+     
+<!-- Admin 管理员信息 -->
+ 	<!-- action -->
+     <bean id="adminAction" class="cn.vote.action.AdminAction" scope="prototype"/>
+    <!-- service -->
+    <bean id="adminService" class="cn.vote.service.impl.AdminServiceImpl"/>
+    <!-- dao -->
+     <bean id="adminDao" class="cn.vote.dao.impl.AdminDaoImpl"/>
+<!-- 管理员权限部分 -->
+	<!-- 权限实体部分 -->
+	<bean id="resourceDao" class="cn.vote.dao.impl.ResourceDaoImpl"/>
+	<bean id="resourceService" class="cn.vote.service.impl.ResourceServiceImpl"/>
+    <bean id="resourceAction" class="cn.vote.action.ResourceAction" scope="prototype"/> 
+     
+     <!-- 分配部分 -->
+     <bean id="adminResourceDao" class="cn.vote.dao.impl.AdminResourceDaoImpl"/>
+     <bean id="adminResourceService" class="cn.vote.service.impl.AdminResourceServiceImpl"/>
+     <bean id="adminResourceAction" class="cn.vote.action.AdminResourceAction" scope="prototype"/>
+     
+     <!-- 菜单 -->
+     <bean id="menuService" class="cn.vote.service.impl.MenuServiceImpl"></bean>
+     
+<!-- users 用户部分 -->
+	<!-- action -->
+     <bean id="userAction" class="cn.vote.action.UserAction" scope="prototype"/>
+     <!-- service -->
+     <bean id="userService" class="cn.vote.service.impl.UserServiceImpl"/>
+     <!-- dao -->
+     <bean id="userDao" class="cn.vote.dao.impl.UserDaoImpl"/>
+<!-- 用户地址 -->
+	 <!-- action -->
+     <bean id="userAddressAction" class="cn.vote.action.UserAddressAction" scope="prototype"/>
+     <!-- service -->
+     <bean id="userAddressService" class="cn.vote.service.impl.UserAddressServiceImpl"/>
+     <!-- dao -->
+     <bean id="userAddressDao" class="cn.vote.dao.impl.UserAddressDaoImpl"/>
+<!-- 用户图片 --> 
+	 <!-- action -->
+     <bean id="userImgAction" class="cn.vote.action.UserImgAction" scope="prototype"/>
+     <!-- service -->
+     <bean id="userImgService" class="cn.vote.service.impl.UserImgServiceImpl"/>
+      <!-- dao -->
+	 <bean id="userImgDao" class="cn.vote.dao.impl.UsersImgDaoImpl"/>   
+     
+<!-- goods 商品部分 -->    
+     <!-- action -->
+     <bean id="goodsAction" class="cn.vote.action.GoodsAction" scope="prototype"/>
+     <!-- service -->
+     <bean id="goodsService" class="cn.vote.service.impl.GoodsServiceImpl"/>
+     <!-- dao -->
+     <bean id="goodsDao" class="cn.vote.dao.impl.GoodsDaoImpl"/>
+     
+<!-- goodsImg 商品图片信息 -->     
+     <!-- action --><!-- 商品图片随之商品一同展示，没有相对应的接口 -->
+     <!-- service -->
+     <bean id="goodsImgService" class="cn.vote.service.impl.GoodsImgServiceImpl"/>
+     <!-- dao -->
+     <bean id="goodsImgDao" class="cn.vote.dao.impl.GoodsImgDaoImpl"/>
+     
+<!-- lable 标签部分 -->
+     <!-- action -->
+     <bean id="lableAction" class="cn.vote.action.LableAction" scope="prototype"/>
+     <!-- service -->
+     <bean id="lableService" class="cn.vote.service.impl.LableServiceImpl"/>
+     <!-- dao -->
+     <bean id="lableDao" class="cn.vote.dao.impl.LableDaoImpl"/>
+     
+<!-- ball 龙珠部分 -->
+     <!-- action -->
+     <bean id="ballAction" class="cn.vote.action.BallAction" scope="prototype"/>
+     <!-- service -->
+     <bean id="ballService" class="cn.vote.service.impl.BallServiceImpl"/>
+     <!-- dao -->     
+     <bean id="ballDao" class="cn.vote.dao.impl.BallDaoImpl"/>
+     
+<!-- GoodsBall 龙珠兑换商品部分信息  解金化-->   
+ 	 <!-- action -->
+	<bean id="goodsBallAction" class="cn.vote.action.GoodsBallAction" scope="prototype"/>
+     <!-- service -->
+     <bean id="goodsBallService" class="cn.vote.service.impl.GoodsBallServiceImpl"/>
+     <!-- dao -->      
+    <bean id="goodsBallDao" class="cn.vote.dao.impl.GoodsBallDaoImpl"/>
+     
+<!-- VotingRecords 投票记录信息 -->    
+	<!-- action -->
+	<!-- service -->
+	<!-- dao -->
+	<bean id="votingRecordsDao" class="cn.vote.dao.impl.VotingRecordsDaoImpl"/>
+
+<!-- UserBall 用户龙珠信息 -->    
+	<!-- action -->
+	<!-- service -->
+	<!-- dao -->	
+	<bean id="userBallDao" class="cn.vote.dao.impl.UserBallDaoImpl"/>
+	
+<!-- UserLabel 用户标签 -->
+	<!-- action -->
+	<bean id="userLabelAction" class="cn.vote.action.UserLabelAction" scope="prototype"/>
+	<!-- service -->
+	<bean id="userLabelService" class="cn.vote.service.impl.UserLabelServiceImpl"/>
+	<!-- dao -->
+	<bean id="userLabelDao" class="cn.vote.dao.impl.UserLabelDaoImpl"/>
+	
+<!-- 商品兑换记录 -->
+	<!-- action -->
+	<!-- service -->
+	<bean id="goodsConversionService" class="cn.vote.service.impl.GoodsConversionServiceImpl"/>
+	<!-- dao -->
+	<bean id="goodsConversionDao" class="cn.vote.dao.impl.GoodsConversionDaoImpl"/>
+	
+<!-- 游戏部分 -->
+	<!-- action -->
+	<bean id="gameAction" class="cn.vote.action.GameAction" scope="prototype"/>
+	<!-- service -->
+	<bean id="gameService" class="cn.vote.service.impl.GameServiceImpl"/> 
+	<!-- dao --> 
+	<bean id="gameDao" class="cn.vote.dao.impl.GameDaoImpl"/>
+	
+<!-- 奖项 -->
+	<bean id="awardsAction" class="cn.vote.action.AwardsAction" scope="prototype"/>
+	<bean id="awardsService" class="cn.vote.service.impl.AwardsServiceImpl"/>
+	<bean id="awardsDao" class="cn.vote.dao.impl.AwardsDaoImpl"/>
+	
+<!-- 游戏记录 -->
+	<bean id="gameRcordDao" class="cn.vote.dao.impl.GameRcordDaoImpl"></bean>
+	
+<!-- 爱心 -->	
+	<bean id="loveAction" class="cn.vote.action.LoveAction" scope="prototype"/>
+	<bean id="loveService" class="cn.vote.service.impl.LoveServiceImpl"/>
+	<bean id="loveDao" class="cn.vote.dao.impl.LoveDaoImpl"/>
+	
+<!-- 好友 -->
+	<bean id="friendAction" class="cn.vote.action.FriendAction" scope="prototype"/>
+	<bean id="friendService" class="cn.vote.service.impl.FriendServiceImpl"/>
+	<bean id="friendDao" class="cn.vote.dao.impl.FriendDaoImpl"/>
+
+<!-- 兑奖中心 -->
+	<bean id="rewardGoodsDao" class="cn.vote.dao.impl.RewardGoodsDaoImpl"/>
+	
+</beans>
+	
+

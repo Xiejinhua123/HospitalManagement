@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="cn.vote.entity.Friend" table="friend" catalog="vote">
+        <id name="id" type="java.lang.String">
+            <column name="ID" length="20" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="usersByUserId" class="cn.vote.entity.Users" fetch="select">
+            <column name="USER_ID" length="13" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usersByFriendId" class="cn.vote.entity.Users" fetch="select">
+            <column name="FRIEND_ID" length="13" not-null="true" />
+        </many-to-one>
+        <property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="19" not-null="true" />
+        </property>
+
+    </class>
+</hibernate-mapping>

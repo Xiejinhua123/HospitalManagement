@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="VoteManage"
+  id="myeclipse.1500099225175"
+  context-root="/VoteManage"
+  j2ee-spec="6.0"
+  archive="VoteManage.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
